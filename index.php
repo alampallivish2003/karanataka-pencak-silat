@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Karnataka Pencak Silat Association</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    :root {
+      --primary: #1a1a2e;
+      --primary-dark: #0f0f1e;
+      --accent: #ffc107;
+      --accent-blue: #00d4ff;
+      --accent-gold: #d4a017;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a0a14;
+      color: #fff;
+    }
+    
+    /* Navbar */
+    .navbar {
+      background-color: var(--primary);
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .navbar-brand {
+      font-weight: 800;
+      color: white !important;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+    
+    .nav-link {
+      color: #ccc !important;
+      font-weight: 500;
+      transition: color 0.3s;
+      font-size: 0.95rem;
+    }
+    
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--accent-blue) !important;
+    }
+    
+    .btn-login {
+      background-color: var(--accent-blue);
+      color: #000;
+      border: 2px solid var(--accent-blue);
+      font-weight: 600;
+      padding: 0.5rem 1.5rem;
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+    
+    .btn-login:hover {
+      background-color: transparent;
+      color: var(--accent-blue);
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, rgba(10, 10, 20, 0.8), rgba(26, 60, 52, 0.3)), 
+                  url('./images/Screenshot\ 2026-02-17\ 160213.png') center/cover no-repeat;
+      color: white;
+      padding: 0 0 150px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      position: relative;
+      margin-top: 60px;
+    }
+    
+    .hero-content {
+      max-width: 1000px;
+    }
+    
+    .hero h1 {
+      font-size: 5rem;
+      font-weight: 900;
+      margin-bottom: 1.5rem;
+      letter-spacing: -1px;
+      line-height: 1.2;
+      background: linear-gradient(135deg, #fff, var(--accent-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    
+    
+
+    
+    /* Stats Section */
+    .stats-section {
+      background-color: var(--primary);
+      padding: 80px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--accent-blue);
+      margin-bottom: 10px;
+    }
+    
+    .stat-label {
+      font-size: 1rem;
+      color: #aaa;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    /* Events Section */
+   /* Events Dynamic Background */
+.events-section {
+  padding: 100px 0;
+  background-color: #0a0a14;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.5s ease-in-out;
+}
+
+.events-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 20, 0.85);
+  z-index: 1;
+}
+
+.events-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+    
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 3rem;
+      color: #fff;
+    }
+    
+    .section-title span {
+      color: var(--accent-blue);
+    }
+    
+    .section-subtitle {
+      text-align: center;
+      color: #aaa;
+      font-size: 1rem;
+      margin-bottom: 3rem;
+      display: block;
+    }
+    
+   .event-card {
+  background: linear-gradient(135deg, rgba(26, 58, 54, 0.5), rgba(26, 60, 52, 0.2));
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 10px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+
+  height: 100%;              /* ✅ same height */
+  display: flex;             /* ✅ flexbox */
+  flex-direction: column;
+  justify-content: space-between;
+}
+    
+    .event-card:hover {
+      border-color: var(--accent-blue);
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0, 212, 255, 0.2);
+    }
+    
+    .event-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    
+    .event-card p {
+      color: #aaa;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    .event-card-footer {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    .event-avatar {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background: var(--accent-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: #000;
+    }
+    
+    .btn-event {
+  background-color: var(--accent-blue);
+  color: #000;
+  border: none;
+  padding: 0.6rem 1.8rem;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+  display: inline-block;     /* ✅ important */
+}
+
+.btn-event:hover {
+  background-color: var(--accent-gold);
+  transform: translateY(-2px);
+  color: #000;               /* keep text black */
+}
+
+    /* Weapons of Mastery Section */
+    .weapons-section {
+      background: linear-gradient(135deg, var(--primary), #1a2a3e);
+      padding: 100px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .weapon-item {
+      text-align: center;
+      padding: 40px 30px;
+    }
+    
+    .weapon-icon {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      color: var(--accent-blue);
+    }
+    
+    .weapon-item h4 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+    
+    .weapon-item p {
+      color: #aaa;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--primary-dark);
+      color: #ccc;
+      padding: 60px 0 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    footer h5 {
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    
+    .footer-link {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.3s;
+      font-size: 0.9rem;
+    }
+    
+    .footer-link:hover {
+      color: var(--accent-blue);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(0, 212, 255, 0.1);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-blue);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .social-icon:hover {
+      background: var(--accent-blue);
+      color: #000;
+    }
+    
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero-image {
+        display: none;
+      }
+      
+      .hero {
+        padding: 150px 0 100px;
+        margin-top: 0;
+      }
+      
+      .stat-number {
+        font-size: 2rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#home">K.S.P.S.A</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">HOME</a></li>
+        <li class="nav-item"><a class="nav-link" href="#events">EVENTS</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">ABOUT</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">CONTACT</a></li>
+        <li class="nav-item ms-lg-3">
+          <a class="btn btn-login" href="login.php">LOGIN</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Karnataka <br> <span style="color: var(--accent-blue);">Pencak Silat <br></span>Association</h1>
+      <p class="hero-subtitle">
+        Experience the power and discipline of Pencak Silat.<br>
+        Join thousands of champions in Karnataka.
+      </p>
+
+    </div>
+  </div>
+ 
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="stat-item">
+          <div class="stat-number">15,000+</div>
+          <div class="stat-label">REGISTERED MEMBERS</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stat-item">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">EVENTS YEARLY</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stat-item">
+          <div class="stat-number">200+</div>
+          <div class="stat-label">SKILLED ARTISTS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Events Section -->
+<section id="events" class="events-section">
+  <div class="container">
+    <h2 class="section-title">OUR <span>EVENTS</span></h2>
+    <span class="section-subtitle">
+      5 Events (3-Individual event, 2-Team event)
+    </span>
+
+    <div class="row g-4 justify-content-center">
+
+      <!-- CARD 1 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="event-card"
+          data-bg="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1920&q=80">
+          <h3>TANDING (Match)</h3>
+          <p>Tanding is a match category where two Pesilat from different teams compete against each other. They use attacking and defensive techniques such as strikes, blocks, evasions, and takedowns. The bout emphasizes technique, strategy, stamina, and fighting spirit while following official competition rules..</p>
+         <a href="https://youtu.be/8H0x1AKlpM4?si=_qpzp2K1iAavM8zF" target="_blank" class="btn-event mt-3 text-decoration-none d-inline-block">
+  WATCH VIDEO
+</a>
+
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="event-card"
+          data-bg="https://images.unsplash.com/photo-1521417531039-4b1a6d0c03f5?auto=format&fit=crop&w=1920&q=80">
+          <h3>TUNGGAL (Single)</h3>
+          <p>Tunggal is an individual performance category where a single Pesilat performs the standardized Jurus Tunggal Baku. The performance must be accurate, firm, expressive, and complete. It includes movements with empty hands and weapons as per official regulations..</p>
+         <a href="https://youtu.be/pNkSmv_PgaA?si=fXLSdB854G-irDRj" target="_blank" class="btn-event mt-3 text-decoration-none d-inline-block">
+  WATCH VIDEO
+</a>
+
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="event-card"
+          data-bg="https://images.unsplash.com/photo-1505678261036-a3fcc5e884ee?auto=format&fit=crop&w=1920&q=80">
+          <h3>Solo Creative</h3>
+          <p>Solo Creative Pencak Silat is an artistic individual performance category where one Pesilat showcases original choreography inspired by traditional techniques. The performance combines attack and defense movements with creativity, expression, rhythm, and power. It may include empty hands or weapons and emphasizes artistic presentation while maintaining authentic Pencak Silat principles..</p>
+         <a href="https://youtu.be/olHZwQo1llQ?si=AEs3HMWIh9QPzqs5" target="_blank" class="btn-event mt-3 text-decoration-none d-inline-block">
+  WATCH VIDEO
+</a>
+
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="event-card"
+          data-bg="https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&w=1920&q=80">
+          <h3>GANDA (Double)</h3>
+          <p>Ganda is a paired category performed by two Pesilat from the same team. They demonstrate choreographed attacking and defensive techniques in a structured and artistic sequence. The performance may include empty hands or weapons according to competition rules..</p>
+         <a href="https://youtu.be/DXVXDqpIZDI?si=c_--WJIdDWFTkK72" target="_blank" class="btn-event mt-3 text-decoration-none d-inline-block">
+  WATCH VIDEO
+</a>
+
+        </div>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="event-card"
+          data-bg="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1920&q=80">
+          <h3>REGU (Team)</h3>
+          <p>Regu is a team category performed by three Pesilat from the same team. They perform compulsory movements in perfect synchronization, accuracy, and expression. The routine is done with empty hands following official Regu competition rules.</p>
+         <a href="https://youtu.be/0mBMi_SE05Q?si=SnbDNHHJ0-Q-9Ldt" target="_blank" class="btn-event mt-3 text-decoration-none d-inline-block">
+  WATCH VIDEO
+</a>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Weapons of Mastery Section -->
+<section class="weapons-section">
+  <div class="container">
+    <h2 class="section-title">THE WEAPONS OF <span>MASTERY</span></h2>
+    
+    <div class="row">
+      <div class="col-md-4">
+        <div class="weapon-item">
+          <div class="weapon-icon">⚡</div>
+          <h4>THE KICK</h4>
+          <p>Master the fundamental striking techniques that define Pencak Silat. Develop power, precision, and timing in every movement.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="weapon-item">
+          <div class="weapon-icon">🛡️</div>
+          <h4>THE COMMAND</h4>
+          <p>Learn strategic defense and tactical awareness. Command the arena with confidence and disciplined technique.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="weapon-item">
+          <div class="weapon-icon">🎯</div>
+          <h4>ART TO GUARD</h4>
+          <p>Transform your practice into protective art. Balance offense and defense while maintaining the traditional spirit of Silat.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-lg-4 mb-4">
+        <h5>SILAT</h5>
+        <p class="text-muted mt-3">
+          Promoting excellence and discipline through the traditional martial art of Pencak Silat. Building champions one student at a time.
+        </p>
+      </div>
+      <div class="col-lg-2 mb-4">
+        <h5>QUICK LINKS</h5>
+        <ul class="list-unstyled mt-3">
+          <li><a href="#home" class="footer-link">Home</a></li>
+          <li><a href="#events" class="footer-link">Events</a></li>
+          <li><a href="#" class="footer-link">Gallery</a></li>
+          <li><a href="login.php" class="footer-link">Login</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 mb-4">
+        <h5>RESOURCES</h5>
+        <ul class="list-unstyled mt-3">
+          <li><a href="#" class="footer-link">Training</a></li>
+          <li><a href="#" class="footer-link">Certification</a></li>
+          <li><a href="#" class="footer-link">Team</a></li>
+          <li><a href="#" class="footer-link">Blog</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <h5>CONTACT US</h5>
+        <ul class="list-unstyled mt-3" style="font-size: 0.9rem;">
+          <li><i class="bi bi-geo-alt-fill me-2"></i> Little Hearts School-Hosalli Road,
+Gangavathi- 5853227 <br> Koppal Dt. Karnataka State</li>
+          <li><i class="bi bi-envelope-fill me-2"></i>silat.karnataka@yahoo.com <br>
+karnatakapencaksilat@gmail.com</li>
+          <li><i class="bi bi-telephone-fill me-2"></i> 9986357974, 9900399243</li>
+        </ul>
+        <div class="social-icons">
+          <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <?= date("Y") ?> Karnataka Pencak Silat Association. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<script>
+  const eventSection = document.querySelector(".events-section");
+  const cards = document.querySelectorAll(".event-card");
+
+  cards.forEach(card => {
+    card.addEventListener("mouseenter", function () {
+      const bgImage = this.getAttribute("data-bg");
+      eventSection.style.background = `
+        linear-gradient(rgba(10,10,20,0.85), rgba(10,10,20,0.85)),
+        url(${bgImage}) center/cover no-repeat
+      `;
+    });
+
+    card.addEventListener("mouseleave", function () {
+      eventSection.style.background = "#0a0a14";
+    });
+  });
+</script>
+
+</html>
